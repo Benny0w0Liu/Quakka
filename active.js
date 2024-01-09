@@ -3,7 +3,7 @@ var frames=[
 "      @ @                     @ @           \n    @ ; @   @ @ @ @ @ @ @ @   @ ; @         \n    @ ; @ @ ; ; ; ; ; ; ; ; @ @ ; @         \n    @ @ @ ; ; @ ; ; ; @ ; ; ; @ @ @         \n    @ @ ; ; ; @ ; ; ; @ ; ; ; ; @           \n    @ ; ; ; ; ; @ @ @ ; ; ; ; ; ; @         \n  @ @ ; ; ; ; ; @ @ @ ; ; ; ; ; ; @ @       \n  @ ; ; ; ; @ ; @ @ @ ; @ ; ; ; ; ; @       \n  @ ; ; ; ; ; @ @ ; @ @ ; ; ; ; ; ; @       \n  @ ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; @       \n  @ @ ; ; ; ; ; ; ; ; ; ; ; ; ; ; @ @       \n    @ @ ; ; ; ; ; ; ; ; ; ; ; ; @ @         \n      @ @ ; ; ; ; ; ; ; ; ; ; @             \n      @ @ ; ; ; ; ; ; ; ; ; ; @             \n      @ ; ; @ ; ; ; @ ; ; ; ; ; @ @         \n    @ ; ; ; ; @ ; @ ; ; ; ; ; ; ; @         \n    @ ; ; @ ; ; @ ; ; @ ; ; ; ; ; @         \n    @ ; ; ; @ @ . @ @ . ; ; ; ; ; @         \n    @ ; ; ; ; ; . . . ; ; ; ; ; ; @         \n    @ ; ; ; ; ; ; ; ; ; ; ; ; ; ; @         \n    @ @ ; ; ; ; ; ; ; ; ; ; ; ; ; @         \n      @ @ ; ; ; ; ; ; ; ; ; ; ; @ @ @       \n        @ @ @ ; ; ; ; ; ; ; @ @ @ ; ; @     \n        @ @ @ @ @ @ @ @ @ @ @ @ @ @ ; ; @   \n        @ @ @               @ @ @   @ @ @   \n",
 "      @ @                     @ @           \n    @ ; @   @ @ @ @ @ @ @ @   @ ; @         \n    @ ; @ @ ; ; ; ; ; ; ; ; @ @ ; @         \n    @ @ @ ; ; @ ; ; ; @ ; ; ; @ @ @         \n    @ @ ; ; ; @ ; ; ; @ ; ; ; ; @           \n    @ ; ; ; ; ; @ @ @ ; ; ; ; ; ; @         \n  @ @ ; ; ; ; ; @ @ @ ; ; ; ; ; ; @ @       \n  @ ; ; ; ; @ ; @ @ @ ; @ ; ; ; ; ; @       \n  @ ; ; ; ; ; @ @ ; @ @ ; ; ; ; ; ; @       \n  @ ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; @       \n  @ @ ; ; ; ; ; ; ; ; ; ; ; ; ; ; @ @       \n  @ @ @ ; ; ; ; ; ; ; ; ; ; ; @ @ @         \n@ ; ; @ @ ; ; ; ; ; ; ; ; ; @ ; ; @         \n@ ; ; ; @ ; ; ; ; ; ; ; ; @ ; ; ; @         \n  @ ; ; @ ; ; ; ; ; ; ; ; ; ; ; @ @         \n  @ @ ; ; ; ; ; . . . ; ; ; ; @ ; @         \n    @ @ ; ; ; . . . . . ; ; @ ; ; @         \n    @ ; ; ; ; . . . . . ; ; ; ; ; @         \n    @ ; ; ; ; ; . . . ; ; ; ; ; ; @         \n    @ ; ; ; ; ; ; ; ; ; ; ; ; ; ; @         \n    @ @ ; ; ; ; ; ; ; ; ; ; ; ; ; @         \n      @ @ ; ; ; ; ; ; ; ; ; ; ; @ @ @       \n        @ @ @ ; ; ; ; ; ; ; @ @ @ ; ; @     \n        @ @ @ @ @ @ @ @ @ @ @ @ @ @ ; ; @   \n        @ @ @               @ @ @   @ @ @   \n"
 ];
-var click_count=0,f=0;
+var click_count=0,f=0,flag=0;
 var quokka=[];
 function background(){
     var r=Math.floor(Math.random()*256),g=Math.floor(Math.random()*256),b=Math.floor(Math.random()*256);
@@ -14,6 +14,18 @@ function background(){
 }
 
 incrementClick =function() {
+    if(click_count==0){
+        var timeoutID = setTimeout(myAlert, 17000);
+        function myAlert() {
+            flag=1;
+        }
+        timeoutID;
+        const audio = document.createElement("audio");
+        audio.src = "ha-take-on-me-official-video-remastered-in-4k.mp3";
+        audio.play();
+        var p=document.getElementById("tip");
+        p.style.top="1000%"
+    }
     if(click_count<12){
         var r=Math.floor(Math.random()*256),g=Math.floor(Math.random()*256),b=Math.floor(Math.random()*256);
         quokka.push({
@@ -25,6 +37,7 @@ incrementClick =function() {
     if(click_count<14){
         click_count++;
     }
+    
 }
 function draw_quokka(){
     var windowWidth = window.innerWidth;
@@ -58,7 +71,7 @@ function run_quokka(){
     }
 }
 function run_the_animation(){
-    if(f==0){
+    if(f==0 && flag==1){
         background(); 
         f=1;
     }else if(f==1){
