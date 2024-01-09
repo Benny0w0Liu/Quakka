@@ -24,7 +24,9 @@ incrementClick =function() {
         audio.src = "ha-take-on-me-official-video-remastered-in-4k.mp3";
         audio.play();
         var p=document.getElementById("tip");
-        p.style.top="1000%"
+        p.style.top="1000%";
+        document.body.style.width="0";
+        document.body.style.height="0";
     }
     if(click_count<12){
         var r=Math.floor(Math.random()*256),g=Math.floor(Math.random()*256),b=Math.floor(Math.random()*256);
@@ -60,10 +62,10 @@ function run_quokka(){
         var x=document.getElementById(i.toString());
         x.innerText=frames[f%2];
         var pos=[parseInt(x.style.bottom),parseInt(x.style.left)];
-        if(pos[0]+quokka[i].dir[0]<=0 || pos[0]+quokka[i].dir[0]>=windowHeight){
+        if(pos[0]+quokka[i].dir[0]<=0 || pos[0]+quokka[i].dir[0]+(x.offsetHeight)>=windowHeight){
             quokka[i].dir[0]=-quokka[i].dir[0];
         }
-        if(pos[1]+quokka[i].dir[1]<=0 || pos[1]+quokka[i].dir[1]>=windowWidth){
+        if(pos[1]+quokka[i].dir[1]<=0|| pos[1]+quokka[i].dir[1]+(x.offsetWidth/2)>=windowWidth){
             quokka[i].dir[1]=-quokka[i].dir[1];
         }
         x.style.bottom=pos[0]+quokka[i].dir[0]+"px";
