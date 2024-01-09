@@ -65,7 +65,7 @@ function run_quokka(){
         if(pos[0]+quokka[i].dir[0]<=0 || pos[0]+quokka[i].dir[0]+(x.offsetHeight)>=windowHeight){
             quokka[i].dir[0]=-quokka[i].dir[0];
         }
-        if(pos[1]+quokka[i].dir[1]<=0|| pos[1]+quokka[i].dir[1]+(x.offsetWidth/2)>=windowWidth){
+        if(pos[1]+quokka[i].dir[1]<=0|| pos[1]+quokka[i].dir[1]+(x.offsetWidth)>=windowWidth){
             quokka[i].dir[1]=-quokka[i].dir[1];
         }
         x.style.bottom=pos[0]+quokka[i].dir[0]+"px";
@@ -73,8 +73,10 @@ function run_quokka(){
     }
 }
 function run_the_animation(){
-    if(f==0 && flag==1){
-        background(); 
+    if(f==0){
+        if(flag==1){
+            background();
+        }
         f=1;
     }else if(f==1){
         f=2;
