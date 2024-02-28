@@ -6,12 +6,12 @@
     </head>
     <body>
         <div style="position:absolute;top:40%;left: 50%;transform: translate(-50%,-50%);line-height: 200%">
-            目標:<input type="number" id="goal_dir"min="1" max="12" value="1"/>點<input type="number" id="goal_score"min="1" max="10" value="1"/> <br>
-            實際:<input type="number" id="real_dir"min="1" max="12" value="1"/>點<input type="number" id="real_score"min="1" max="10" value="1"/> <br>
-            <button type="button"  onclick="getValueInput()"> 
+            目標Goal:第<input type="number" id="goal"min="0" max="7" value="0"/>箭<br>
+            實際Actual position:<input type="number" id="real_dir"min="1" max="12" value="1"/>點<input type="number" id="real_score"min="1" max="10" value="1"/> <br>
+            <button type="button"  onclick="getValueDistance()"> 
                 distance-> 
             </button> 
-            <h1 style="position:absolute;left: 50%;transform: translate(0,-50%)" id="ans">0</h1>
+            <h1 id="dis">0</h1>
         </div>
         
         <link rel="stylesheet" type="text/css" href="style.css" />
