@@ -15,5 +15,16 @@ body{
     width: calc(100vw - 40px);
     height: calc(100vh - 40px);
     overflow: hidden;
-    vertical-align: top; 
+    vertical-align: top;
+}
+div{ 
+    white-space:nowrap; 
+    line-height: 200%;
+    text-align:left;
+}
+#dis{
+    margin: 10px;
+    line-height: 96px;
+    height: 96px;
+    font-size: 96px;
 }
