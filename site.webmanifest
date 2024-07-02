@@ -3,6 +3,7 @@
     "icons": [
         {
             "src": "https://raw.githubusercontent.com/Benny0w0Liu/Quokka/main/Quakka_01.png",
+            "sizes": "32x32",
             "type": "image/png"
         }
     ]
