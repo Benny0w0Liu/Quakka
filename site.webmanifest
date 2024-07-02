@@ -2,7 +2,7 @@
     "name": "Quokka",
     "icons": [
         {
-            "src": "/Quakka_01.png",
+            "src": "./Quakka_01.png",
             "sizes": "32x32",
             "type": "image/png"
         }
