@@ -1,3 +1,11 @@
+let installPrompt = null;
+const installButton = document.querySelector("#install");
+
+window.addEventListener("beforeinstallprompt", (event) => {
+    event.preventDefault();
+    installPrompt = event;
+    installButton.removeAttribute("hidden");
+});
 window.onload = function what() {
     var frames = [
         "      @ @                     @ @           \n    @ ; @   @ @ @ @ @ @ @ @   @ ; @         \n    @ ; @ @ ; ; ; ; ; ; ; ; @ @ ; @         \n    @ @ @ ; ; @ ; ; ; @ ; ; ; @ @ @         \n    @ @ ; ; ; @ ; ; ; @ ; ; ; ; @           \n    @ ; ; ; ; ; @ @ @ ; ; ; ; ; ; @         \n  @ @ ; ; ; ; ; @ @ @ ; ; ; ; ; ; @ @       \n  @ ; ; ; ; @ ; @ @ @ ; @ ; ; ; ; ; @       \n  @ ; ; ; ; ; @ @ ; @ @ ; ; ; ; ; ; @       \n  @ ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; @       \n  @ @ ; ; ; ; ; ; ; ; ; ; ; ; ; ; @ @       \n    @ @ ; ; ; ; ; ; ; ; ; ; ; ; @ @         \n      @ @ ; ; ; ; ; ; ; ; ; ; @             \n      @ @ ; ; ; ; ; ; ; ; ; ; @             \n      @ ; ; @ ; ; ; @ ; ; ; ; ; @ @         \n    @ ; ; ; ; @ ; @ ; ; ; ; ; ; ; @         \n    @ ; ; @ ; ; @ ; ; @ ; ; ; ; ; @         \n    @ ; ; ; @ @ . @ @ . ; ; ; ; ; @         \n    @ ; ; ; ; ; . . . ; ; ; ; ; ; @         \n    @ ; ; ; ; ; ; ; ; ; ; ; ; ; ; @         \n    @ @ ; ; ; ; ; ; ; ; ; ; ; ; ; @         \n      @ @ ; ; ; ; ; ; ; ; ; ; ; @ @ @       \n        @ @ @ ; ; ; ; ; ; ; @ @ @ ; ; @     \n        @ @ @ @ @ @ @ @ @ @ @ @ @ @ ; ; @   \n        @ @ @               @ @ @   @ @ @   \n",
@@ -5,15 +13,6 @@ window.onload = function what() {
     ];
     var click_count = 0, f = 0, flag = 0;
     var quokka = [];
-    installButton.addEventListener("click", async () => {
-        if (!installPrompt) {
-            return;
-        }
-        const result = await installPrompt.prompt();
-        console.log(`Install prompt was: ${result.outcome}`);
-        installPrompt = null;
-        installButton.setAttribute("hidden", "");
-    });
     function background() {
         var r = Math.floor(Math.random() * 256), g = Math.floor(Math.random() * 256), b = Math.floor(Math.random() * 256);
         var box = document.querySelector("html");
