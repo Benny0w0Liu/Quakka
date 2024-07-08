@@ -1,7 +1,7 @@
 {
     "name": "Quokka",
     "short_name": "Quokka",
-    "start_url": "./index.html",
+    "start_url": "https://benny0w0liu.github.io/Quokka/",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
